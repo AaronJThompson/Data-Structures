@@ -1,4 +1,4 @@
-import DoublyLinkedList from doubly_linked_list
+from doubly_linked_list import DoublyLinkedList
 
 class LRUCache:
     """
@@ -21,7 +21,13 @@ class LRUCache:
     key-value pair doesn't exist in the cache.
     """
     def get(self, key):
-        pass
+        if not key in self.storage:
+            return
+        value = self.storage[key]
+        if value is not None:
+            node = self.list.find(key)
+            self.list.move_to_front(node)
+        return value
 
     """
     Adds the given key-value pair to the cache. The newly-
