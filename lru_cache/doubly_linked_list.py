@@ -119,3 +119,10 @@ class DoublyLinkedList:
             if node.value > max_node.value:
                 max_node = node
         return max_node
+    def find(self, value):
+        node = self.head
+        while self.tail is not node:
+            node = node.next
+            if node.value == value:
+                return node
+        return None
