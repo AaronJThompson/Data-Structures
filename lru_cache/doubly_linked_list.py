@@ -92,7 +92,15 @@ class DoublyLinkedList:
 
 
     def move_to_end(self, node):
-        pass
+        value = node.value
+        if self.tail is node:
+            return
+        if self.head is node:
+            self.remove_from_head()
+        else:
+            node.delete()
+            self.length -= 1
+        self.add_to_tail(value)
 
     def delete(self, node):
         pass
