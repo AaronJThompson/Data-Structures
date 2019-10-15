@@ -40,12 +40,12 @@ class LRUCache:
     the newly-specified value.
     """
     def set(self, key, value):
-        if self.storage[key] is None:
+        if not key in self.storage:
             self.storage[key] = value
             self.list.add_to_head(key)
         else:
             node = self.list.find(key)
             self.list.move_to_front(node)
         if self.list.length > self.limit:
-            self.storage[self.list.tail.value] = None
+            del self.storage[self.list.tail.value]
             self.list.remove_from_tail()
