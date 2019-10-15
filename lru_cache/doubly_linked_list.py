@@ -16,6 +16,7 @@ class ListNode:
         self.next = ListNode(value, self, current_next)
         if current_next:
             current_next.prev = self.next
+        return self.next
 
     """Wrap the given value in a ListNode and insert it
     before this node. Note that this node could already
@@ -25,6 +26,7 @@ class ListNode:
         self.prev = ListNode(value, current_prev, self)
         if current_prev:
             current_prev.next = self.prev
+        return self.prev
 
     """Rearranges this ListNode's previous and next pointers
     accordingly, effectively deleting this ListNode."""
@@ -33,6 +35,7 @@ class ListNode:
             self.prev.next = self.next
         if self.next:
             self.next.prev = self.prev
+        return self
 
 
 """Our doubly-linked list class. It holds references to
@@ -63,7 +66,9 @@ class DoublyLinkedList:
             self.head.delete()
 
     def add_to_tail(self, value):
-        pass
+        if self.tail is not None:
+            self.tail.insert_after(value)
+
 
     def remove_from_tail(self):
         pass
