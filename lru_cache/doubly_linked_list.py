@@ -59,8 +59,6 @@ class DoublyLinkedList:
             self.head = self.tail = node
         self.length += 1
 
-
-
     def remove_from_head(self):
         if self.head is not None:
             self.length -= 1
