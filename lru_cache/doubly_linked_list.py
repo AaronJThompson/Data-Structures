@@ -64,17 +64,20 @@ class DoublyLinkedList:
     def remove_from_head(self):
         if self.head is not None:
             return self.head.delete()
+            self.length -= 1
 
     def add_to_tail(self, value):
         if self.tail is not None:
             self.tail = self.tail.insert_after(value)
         else:
             self.add_to_head(value)
+        self.length += 1
 
 
     def remove_from_tail(self):
         if self.tail is not None:
             self.tail = self.tail.delete().prev
+            self.length -= 1
 
     def move_to_front(self, node):
         value = node.value
