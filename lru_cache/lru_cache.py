@@ -44,6 +44,7 @@ class LRUCache:
             self.storage[key] = value
             self.list.add_to_head(key)
         else:
+            self.storage[key] = value
             node = self.list.find(key)
             self.list.move_to_front(node)
         if self.list.length > self.limit:
