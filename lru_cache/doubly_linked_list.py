@@ -67,7 +67,9 @@ class DoublyLinkedList:
 
     def add_to_tail(self, value):
         if self.tail is not None:
-            self.tail.insert_after(value)
+            self.tail = self.tail.insert_after(value)
+        else:
+            self.add_to_head(value)
 
 
     def remove_from_tail(self):
