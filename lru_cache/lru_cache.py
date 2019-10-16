@@ -40,7 +40,7 @@ class LRUCache:
     the newly-specified value.
     """
     def set(self, key, value):
-        if not key in self.storage:
+        if not key in self.storage: 
             self.storage[key] = value
             self.list.add_to_head(key)
         else:
