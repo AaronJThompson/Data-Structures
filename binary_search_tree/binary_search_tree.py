@@ -75,6 +75,8 @@ class BinarySearchTree:
                     next_level.enqueue(cur_node.left)
                 if cur_node.right:
                     next_level.enqueue(cur_node.right)
+                print(cur_node.value)
+            level = next_level
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
