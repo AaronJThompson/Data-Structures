@@ -34,3 +34,6 @@ class Heap:
         if left_child < len(self.storage) - 1 and self.storage[left_child] > self.storage[index]:
             self.__swap__(left_child, index)
             self._sift_down(left_child)
+        if right_child < len(self.storage) - 1 and self.storage[right_child] > self.storage[index]:
+            self.__swap__(right_child, index)
+            self._sift_down(right_child)
