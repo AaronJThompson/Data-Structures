@@ -122,4 +122,16 @@ class AVLTree:
     if we need to rebalance
     """
     def insert(self, key):
-        pass
+        if key < self.node.value:
+            if self.node.left:
+                self.node.left.insert(key)
+            else:
+                self.node.left = AVLTree(Node(key))
+        else:
+            if self.node.right:
+                self.node.right.insert(key)
+            else:
+                self.node.right = AVLTree(Node(key))
+        self.update_balance()
+        if abs(self.balance) > 1:
+            self.rebalance()
