@@ -52,9 +52,10 @@ class AVLTree:
             right.update_height()
             right_height = right.height
         if left_height > right_height:
-            return left_height + 1
+            self.height = left_height + 1
         else:
-            return right_height + 1
+            self.height = right_height + 1
+        return self.height
 
     """
     Updates the balance factor on the AVLTree class
