@@ -8,6 +8,15 @@ class Node:
         self.left = None
         self.right = None
 
+    def get_height(self):
+        left_height = 0
+        right_height = 0
+        
+        if self.left:
+            left_height = self.left.get_height()
+        if self.right:
+            right_height = self.right.get_height()
+
 """
 A tree class to keep track of things like the
 balance factor and the rebalancing logic
