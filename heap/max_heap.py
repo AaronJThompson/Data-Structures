@@ -7,7 +7,8 @@ class Heap:
 
     def insert(self, value):
         self.storage.append(value)
-        self._bubble_up(len(self.storage) - 1)
+        if self.get_size() > 1:
+            self._bubble_up(len(self.storage) - 1)
 
     def delete(self):
         self.__swap__(1, len(self.storage) - 1) #Move top element to end
@@ -16,7 +17,7 @@ class Heap:
         return max_node
 
     def get_max(self):
-        if self.get_size > 0:
+        if self.get_size() > 0:
             return self.storage[1]
 
     def get_size(self):
@@ -26,6 +27,8 @@ class Heap:
         self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
 
     def _bubble_up(self, index):
+        if index <= 1:
+            return
         parent = math.floor(index / 2)
         if self.storage[index] > self.storage[parent]:
             self.__swap__(index, parent)
