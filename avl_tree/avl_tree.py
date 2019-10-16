@@ -89,7 +89,9 @@ class AVLTree:
     of the new parent. 
     """
     def right_rotate(self):
-        pass
+        child = self.node.left
+        self.node.left = None
+        child.node.right = self
 
     """
     Sets in motion the rebalancing logic to ensure the
