@@ -67,11 +67,14 @@ class AVLTree:
         right_height = 0
 
         if left:
+            left.update_balance()
             left_height = left.height
         if right:
+            right.update_balance()
             right_height = right.height
         
         self.balance = left_height - right_height
+        return self.balance
 
     """
     Perform a left rotation, making the right child of this
@@ -99,7 +102,7 @@ class AVLTree:
     1 or -1
     """
     def rebalance(self):
-        pass
+        
         
     """
     Uses the same insertion logic as a binary search tree
