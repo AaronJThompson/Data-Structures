@@ -28,4 +28,9 @@ class Heap:
             self._bubble_up(parent)
 
     def _sift_down(self, index):
-        pass
+        left_child = index * 2
+        right_child = left_child + 1
+
+        if left_child < len(self.storage) - 1 and self.storage[left_child] > self.storage[index]:
+            self.__swap__(left_child, index)
+            self._sift_down(left_child)
