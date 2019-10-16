@@ -61,7 +61,17 @@ class AVLTree:
     Updates the balance factor on the AVLTree class
     """
     def update_balance(self):
-        pass
+        left = self.node.left
+        right = self.node.right
+        left_height = 0
+        right_height = 0
+
+        if left:
+            left_height = left.height
+        if right:
+            right_height = right.height
+        
+        self.balance = left_height - right_height
 
     """
     Perform a left rotation, making the right child of this
