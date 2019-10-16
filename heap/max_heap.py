@@ -5,8 +5,7 @@ class Heap:
 
     def insert(self, value):
         self.storage.append(value)
-        if self.get_size() > 1:
-            self._bubble_up(len(self.storage) - 1)
+        self._bubble_up(len(self.storage) - 1)
 
     def delete(self):
         self.__swap__(0, len(self.storage) - 1) #Move top element to end
