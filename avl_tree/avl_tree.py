@@ -61,20 +61,21 @@ class AVLTree:
     Updates the balance factor on the AVLTree class
     """
     def update_balance(self):
-        left = self.node.left
-        right = self.node.right
-        left_height = 0
-        right_height = 0
+        if self.node is not None:
+            left = self.node.left
+            right = self.node.right
+            left_height = 0
+            right_height = 0
 
-        if left:
-            left.update_balance()
-            left_height = left.height
-        if right:
-            right.update_balance()
-            right_height = right.height
-        
-        self.balance = left_height - right_height
-        return self.balance
+            if left:
+                left.update_balance()
+                left_height = left.height
+            if right:
+                right.update_balance()
+                right_height = right.height
+            
+            self.balance = left_height - right_height
+            return self.balance
 
     """
     Perform a left rotation, making the right child of this
@@ -82,9 +83,10 @@ class AVLTree:
     of the new parent. 
     """
     def left_rotate(self):
-        child = self.node.right
-        self.node.right = None
-        child.node.left = self
+        if self.node.right:
+            child = self.node.right
+            self.node.right = None
+            child.node.left = self
 
     """
     Perform a right rotation, making the left child of this
@@ -92,9 +94,10 @@ class AVLTree:
     of the new parent. 
     """
     def right_rotate(self):
-        child = self.node.left
-        self.node.left = None
-        child.node.right = self
+        if self.node.left:
+            child = self.node.left
+            self.node.left = None
+            child.node.right = self
 
     """
     Sets in motion the rebalancing logic to ensure the
@@ -122,16 +125,19 @@ class AVLTree:
     if we need to rebalance
     """
     def insert(self, key):
-        if key < self.node.value:
-            if self.node.left:
-                self.node.left.insert(key)
+        if self.node is not None:
+            if key < self.node.key:
+                if self.node.left:
+                    self.node.left.insert(key)
+                else:
+                    self.node.left = AVLTree(Node(key))
             else:
-                self.node.left = AVLTree(Node(key))
+                if self.node.right:
+                    self.node.right.insert(key)
+                else:
+                    self.node.right = AVLTree(Node(key))
         else:
-            if self.node.right:
-                self.node.right.insert(key)
-            else:
-                self.node.right = AVLTree(Node(key))
+            self.node = Node(key)
         self.update_balance()
         if abs(self.balance) > 1:
             self.rebalance()
