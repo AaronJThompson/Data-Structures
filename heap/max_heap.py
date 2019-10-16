@@ -1,6 +1,8 @@
 class Heap:
     def __init__(self):
         self.storage = []
+        # This makes the math easier
+        self.storage[0] = None
 
     def insert(self, value):
         pass
