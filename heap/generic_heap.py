@@ -11,7 +11,10 @@ class Heap:
         self._bubble_up(len(self.storage) - 1)
 
     def delete(self):
-        pass
+        self.__swap__(0, len(self.storage) - 1) #Move top element to end
+        max_node = self.storage.pop()
+        self._sift_down(0)
+        return max_node
 
     def get_priority(self):
         pass
@@ -24,3 +27,6 @@ class Heap:
 
     def _sift_down(self, index):
         pass
+
+    def __swap__(self, i, j):
+        self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
