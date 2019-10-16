@@ -70,6 +70,11 @@ class BinarySearchTree:
         while level.len() > 0:
             next_level = Queue()
             while level.len() > 0:
+                cur_node = level.dequeue()
+                if cur_node.left:
+                    next_level.enqueue(cur_node.left)
+                if cur_node.right:
+                    next_level.enqueue(cur_node.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
