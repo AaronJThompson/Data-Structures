@@ -105,7 +105,16 @@ class AVLTree:
         if self.balance > 1:
             if self.node.right.balance > 0:
                 self.left_rotate()
-                
+            else:
+                self.node.right.right_rotate()
+                self.rebalance()
+        else:
+            if self.node.left.balance > 0:
+                self.right_rotate()
+            else:
+                self.node.left.left_rotate()
+                self.rebalance()
+
         
     """
     Uses the same insertion logic as a binary search tree
