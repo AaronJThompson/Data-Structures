@@ -83,7 +83,8 @@ class BinarySearchTree:
     def dft_print(self, node):
         branches = Stack()
         branches.push(node)
-
+        while branches.len() > 0:
+            
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
