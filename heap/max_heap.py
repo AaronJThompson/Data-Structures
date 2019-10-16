@@ -10,7 +10,10 @@ class Heap:
         self._bubble_up(len(self.storage) - 1)
 
     def delete(self):
-        pass
+        self.__swap__(1, len(self.storage) - 1) #Move top element to end
+        max_node = self.storage.pop()
+        self._sift_down(1)
+        return max_node
 
     def get_max(self):
         if self.get_size > 0:
