@@ -13,7 +13,8 @@ class Heap:
         pass
 
     def get_max(self):
-        pass
+        if self.get_size > 0:
+            return self.storage[1]
 
     def get_size(self):
         return len(self.storage) - 1
