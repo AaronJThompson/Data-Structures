@@ -1,3 +1,4 @@
+import math
 class Heap:
     def __init__(self, comparator = None):
         self.storage = []
@@ -24,7 +25,13 @@ class Heap:
         return len(self.storage)
 
     def _bubble_up(self, index):
-        pass
+        if index < 1:
+            return
+        parent = math.ceil(index / 2) - 1
+        if self.comparator(self.storage[index], self.storage[parent]):
+            self.__swap__(index, parent)
+            self._bubble_up(parent)
+
 
     def _sift_down(self, index):
         pass
