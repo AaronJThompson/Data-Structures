@@ -86,6 +86,10 @@ class BinarySearchTree:
         while branches.len() > 0:
             cur_node = branches.pop()
             print(cur_node.value)
+            if cur_node.left:
+                branches.push(cur_node.left)
+            if cur_node.right:
+                branches.push(cur_node.right)
 
     # STRETCH Goals -------------------------
     # Note: Research may be required
