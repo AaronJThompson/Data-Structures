@@ -111,7 +111,7 @@ class AVLTree:
             else:
                 self.node.right.right_rotate()
                 self.rebalance()
-        else:
+        elif self.balance < -1:
             if self.node.left.balance > 0:
                 self.right_rotate()
             else:
