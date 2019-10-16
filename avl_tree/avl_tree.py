@@ -16,6 +16,10 @@ class Node:
             left_height = self.left.get_height()
         if self.right:
             right_height = self.right.get_height()
+        if left_height > right_height:
+            return left_height + 1
+        else:
+            return right_height + 1
 
 """
 A tree class to keep track of things like the
