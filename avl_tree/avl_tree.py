@@ -79,7 +79,9 @@ class AVLTree:
     of the new parent. 
     """
     def left_rotate(self):
-        pass
+        if self.node.left is not None:
+            return
+        child = self.node.right
 
     """
     Perform a right rotation, making the left child of this
