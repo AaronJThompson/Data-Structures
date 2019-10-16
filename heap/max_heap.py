@@ -22,7 +22,8 @@ class Heap:
         self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
 
     def _bubble_up(self, index):
-        parent = self.storage[math.floor(index / 2)]
+        parent = math.floor(index / 2)
+
 
     def _sift_down(self, index):
         pass
