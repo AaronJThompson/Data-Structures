@@ -84,7 +84,9 @@ class BinarySearchTree:
         branches = Stack()
         branches.push(node)
         while branches.len() > 0:
-            
+            cur_node = branches.pop()
+            print(cur_node.value)
+
     # STRETCH Goals -------------------------
     # Note: Research may be required
 
