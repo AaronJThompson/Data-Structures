@@ -34,7 +34,15 @@ class Heap:
 
 
     def _sift_down(self, index):
-        pass
+        left_child = (index * 2) + 1
+        right_child = left_child + 1
+
+        if left_child <= len(self.storage) - 1 and self.comparator(self.storage[left_child], self.storage[index]):
+            self.__swap__(left_child, index)
+            self._sift_down(left_child)
+        if right_child <= len(self.storage) - 1 and self.comparator(self.storage[right_child], self.storage[index]):
+            self.__swap__(right_child, index)
+            self._sift_down(right_child)
 
     def __swap__(self, i, j):
         self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
