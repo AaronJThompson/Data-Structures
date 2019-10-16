@@ -1,7 +1,10 @@
 class Heap:
-    def __init__(self, comparator):
+    def __init__(self, comparator = None):
         self.storage = []
         self.comparator = comparator
+        if comparator is None:
+            # Default to max heap
+            comparator = lambda x, y: x > y
 
     def insert(self, value):
         pass
