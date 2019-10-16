@@ -17,10 +17,11 @@ class Heap:
         return max_node
 
     def get_priority(self):
-        pass
+        if self.get_size() > 0:
+            return self.storage[0]
 
     def get_size(self):
-        pass
+        return len(self.storage)
 
     def _bubble_up(self, index):
         pass
