@@ -16,7 +16,7 @@ class Heap:
         pass
 
     def get_size(self):
-        pass
+        return len(self.storage) - 1
 
     def __swap__(self, i, j):
         self.storage[i], self.storage[j] = self.storage[j], self.storage[i]
