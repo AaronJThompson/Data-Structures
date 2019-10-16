@@ -14,14 +14,14 @@ class BinarySearchTree:
     def insert(self, value):
         if value < self.value:
             if self.left:
-                self.left = BinarySearchTree(value)
-            else:
                 self.left.insert(value)
+            else:
+                self.left = BinarySearchTree(value)
         else:
             if self.right:
-                self.right = BinarySearchTree(value)
-            else:
                 self.right.insert(value)
+            else:
+                self.right = BinarySearchTree(value)
 
     # Return True if the tree contains the value
     # False if it does not
